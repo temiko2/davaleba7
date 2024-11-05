@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
+Console.WriteLine("Zebna");
 string title = Console.ReadLine();
 Library library = new Library();
 library.AddBook("igi", "bejani", 2020);
@@ -8,6 +9,9 @@ library.AddBook("maia", "karlo", 1998);
 library.AddBook("taro", "kote", 1876);
 Book Arqivi = library.FindBook(title);
 Console.WriteLine(Arqivi.Author +" "+ Arqivi.Title);
+Console.WriteLine("washla");
+string remove = Console.ReadLine();
+library.RemoveBook(remove);
 public class Book
 {     
     public Book(string title, string author, int year) //construcror
@@ -27,4 +31,5 @@ public class Library
       { books.Add (new Book (title, authotor, year)); }
  
  public Book FindBook (string title) {  return books.Where(X => X.Title == title).FirstOrDefault() ; }
+    public void RemoveBook(string title) { books.Remove(FindBook(title)); }
 }
